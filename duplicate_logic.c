@@ -6,44 +6,31 @@ Refactor the code to avoid repetition.
 */
 #include <stdio.h>
 
-int findMax(int arr[], int n)
+int find(int arr[], int n)
 {
-    int i;
-    int max = arr[0];
+    int max = arr[0],min=arr[0];
 
-    for(i = 1; i < n; i++)
+    for(int i = 1; i < n; i++)
     {
         if(arr[i] > max)
         {
             max = arr[i];
         }
-    }
-
-    return max;
-}
-
-int findMin(int arr[], int n)
-{
-    int i;
-    int min = arr[0];
-
-    for(i = 1; i < n; i++)
-    {
         if(arr[i] < min)
         {
             min = arr[i];
         }
     }
-
-    return min;
+    
+    printf("Max: %d\n", max);
+    printf("Min: %d\n", min);
+    return 0;
 }
+ 
 
 int main()
 {
     int arr[5] = {60, 70, 80, 90, 50};
-
-    printf("Max: %d\n", findMax(arr, 5));
-    printf("Min: %d\n", findMin(arr, 5));
-
+    find(arr,5);
     return 0;
 }
