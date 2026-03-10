@@ -7,33 +7,62 @@ This function is doing too many tasks:
 */
 #include <stdio.h>
 
-void processStudentData()
+int marks[100];
+int noOfStudents;
+
+void input ();
+void averageMarks();
+void minAndMaxMarks ();
+ 
+//main function
+int main()
 {
-    int marks[100];
-    int n;
-    int i;
-    int sum = 0;
+    input();
+    averageMarks();
+    minAndMaxMarks();
 
-    printf("Enter number of students: ");
-    scanf("%d", &n);
+    return 0;
+}
 
-    for(i = 0; i < n; i++)
+
+//input function
+void input (){
+
+     printf("Enter number of students: ");
+    scanf("%d", &noOfStudents);
+
+    for(int i = 0; i < noOfStudents ; i++)
     {
         printf("Enter marks: ");
         scanf("%d", &marks[i]);
     }
 
-    for(i = 0; i < n; i++)
+}
+
+
+//average marks function
+void averageMarks(){
+
+    int sum = 0;
+ 
+    for(int i = 0; i < noOfStudents ; i++)
     {
         sum = sum + marks[i];
     }
 
-    int avg = sum / n;
+    int avg = sum / noOfStudents;
+
+    printf("Average marks = %d\n", avg);
+
+}
+
+//minAndMax function
+void minAndMaxMarks (){
 
     int max = marks[0];
     int min = marks[0];
 
-    for(i = 1; i < n; i++)
+    for(int i = 1; i < noOfStudents ; i++)
     {
         if(marks[i] > max)
         {
@@ -46,13 +75,7 @@ void processStudentData()
         }
     }
 
-    printf("Average: %d\n", avg);
-    printf("Max: %d\n", max);
-    printf("Min: %d\n", min);
+    printf("Max Marks: %d\nMin Marks: %d", max, min);
+
 }
 
-int main()
-{
-    processStudentData();
-    return 0;
-}
