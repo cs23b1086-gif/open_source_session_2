@@ -1,24 +1,24 @@
 #include <stdio.h>
 
-int x[100];
-int y = 0;
+int marks[100];
+int noOfStudents = 0;
 
-int f1()
+int averageMarks()
 {
     int i;
-    int s = 0;
+    int sumOfMarks = 0;
 
-    for(i = 0; i < y; i++)
+    for(i = 0; i < noOfStudents; i++)
     {
-        s = s + x[i];
+        sumOfMarks = sumOfMarks + marks[i];
     }
 
-    if(y == 0)
+    if(noOfStudents == 0)
     {
         return 0;
     }
 
-    return s / y;
+    return sumOfMarks / noOfStudents;
 }
 
 int main()
@@ -26,15 +26,15 @@ int main()
     int i;
 
     printf("Enter number of students: ");
-    scanf("%d", &y);
+    scanf("%d", &noOfStudents);
 
-    for(i = 0; i < y; i++)
+    for(i = 0; i < noOfStudents; i++)
     {
         printf("Enter marks: ");
-        scanf("%d", &x[i]);
+        scanf("%d", &marks[i]);
     }
 
-    int avg = f1();
+    int avg = averageMarks();
 
     printf("Average marks: %d\n", avg);
 
